@@ -1,20 +1,34 @@
 import { Link } from "@tanstack/react-router";
-import { Menu, X } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { Menu01Icon, Cancel01Icon, ArrowDown01Icon } from "@hugeicons/core-free-icons";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu";
 import { useT } from "@/lib/i18n";
 import { LanguageToggle } from "./LanguageToggle";
+import { JANE_BOOK_URL } from "@/lib/links";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
   const t = useT();
+
+  const proSubmenu = [
+    { to: "/nos-professionnelles", label: t<string>("nav.team") },
+    { to: "/notre-approche", label: t<string>("nav.approach") },
+    { to: "/services-expertises", label: t<string>("nav.expertise") },
+    { to: "/collaboration", label: t<string>("nav.collaboration") },
+  ] as const;
 
   const nav = [
     { to: "/", label: t<string>("nav.home") },
     { to: "/services/individuel", label: t<string>("nav.individual") },
     { to: "/services/couples", label: t<string>("nav.couples") },
     { to: "/boutique", label: t<string>("nav.boutique") },
-    { to: "/a-propos", label: t<string>("nav.about") },
   ] as const;
 
   return (
@@ -39,12 +53,36 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
+          <DropdownMenu>
+            <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-foreground/80 outline-none transition-colors hover:text-foreground">
+              {t<string>("nav.professionals")}
+              <HugeiconsIcon icon={ArrowDown01Icon} size={14} />
+            </DropdownMenuTrigger>
+            <DropdownMenuContent align="end" className="w-56 rounded-2xl border-border">
+              {proSubmenu.map((s) => (
+                <DropdownMenuItem key={s.to} asChild className="rounded-xl">
+                  <Link to={s.to} className="w-full cursor-pointer">
+                    {s.label}
+                  </Link>
+                </DropdownMenuItem>
+              ))}
+            </DropdownMenuContent>
+          </DropdownMenu>
+          <Link
+            to="/a-propos"
+            className="text-sm text-foreground/80 transition-colors hover:text-foreground"
+            activeProps={{ className: "text-foreground font-medium" }}
+          >
+            {t<string>("nav.about")}
+          </Link>
         </nav>
 
         <div className="hidden items-center gap-3 md:flex">
           <LanguageToggle />
           <Button asChild className="rounded-full px-6">
-            <Link to="/rendez-vous">{t<string>("nav.book")}</Link>
+            <a href={JANE_BOOK_URL} target="_blank" rel="noopener noreferrer">
+              {t<string>("nav.book")}
+            </a>
           </Button>
         </div>
 
@@ -55,7 +93,7 @@ export function SiteHeader() {
             className="rounded-full p-2 text-foreground"
             aria-label={t<string>("nav.menu")}
           >
-            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+            <HugeiconsIcon icon={open ? Cancel01Icon : Menu01Icon} size={24} />
           </button>
         </div>
       </div>
@@ -75,11 +113,35 @@ export function SiteHeader() {
                 {item.label}
               </Link>
             ))}
-            <Button asChild className="mt-2 rounded-full">
-              <Link to="/rendez-vous" onClick={() => setOpen(false)}>
-                {t<string>("nav.book")}
+            <div className="mt-2 px-3 pb-1 pt-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+              {t<string>("nav.professionals")}
+            </div>
+            {proSubmenu.map((s) => (
+              <Link
+                key={s.to}
+                to={s.to}
+                onClick={() => setOpen(false)}
+                className="rounded-lg px-3 py-2.5 text-sm text-foreground/80 hover:bg-muted"
+              >
+                {s.label}
               </Link>
-            </Button>
+            ))}
+            <Link
+              to="/a-propos"
+              onClick={() => setOpen(false)}
+              className="rounded-lg px-3 py-3 text-base text-foreground/80 hover:bg-muted"
+            >
+              {t<string>("nav.about")}
+            </Link>
+            <a
+              href={JANE_BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              onClick={() => setOpen(false)}
+              className="mt-2 flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground"
+            >
+              {t<string>("nav.book")}
+            </a>
           </nav>
         </div>
       )}

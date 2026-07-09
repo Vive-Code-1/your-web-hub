@@ -1,8 +1,9 @@
-import { Link } from "@tanstack/react-router";
-import { ArrowRight, Check } from "lucide-react";
+import { HugeiconsIcon } from "@hugeicons/react";
+import { ArrowRight02Icon, CheckmarkCircle02Icon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import { CTABand } from "@/components/site/CTABand";
 import { useT } from "@/lib/i18n";
+import { JANE_BOOK_URL } from "@/lib/links";
 
 export interface ServicePageProps {
   /** Translation namespace key: 'individuel' | 'couples' */
@@ -32,9 +33,9 @@ export function ServicePage({ ns, heroImage }: ServicePageProps) {
             </p>
             <div className="mt-8 flex flex-wrap gap-3">
               <Button asChild size="lg" className="rounded-full px-8 py-6 text-base">
-                <Link to="/rendez-vous">
-                  {t<string>("services.book")} <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                <a href={JANE_BOOK_URL} target="_blank" rel="noopener noreferrer">
+                  {t<string>("services.book")} <HugeiconsIcon icon={ArrowRight02Icon} size={16} className="ml-1" />
+                </a>
               </Button>
               <div className="flex items-center gap-2 text-sm text-muted-foreground">
                 <span>{t<string>(k("duration"))}</span> · <span>{t<string>(k("price"))}</span>
@@ -93,7 +94,7 @@ export function ServicePage({ ns, heroImage }: ServicePageProps) {
             {solutionPoints.map((s) => (
               <div key={s.title} className="rounded-3xl bg-accent p-8">
                 <div className="flex h-9 w-9 items-center justify-center rounded-full bg-background text-foreground">
-                  <Check className="h-4 w-4" />
+                  <HugeiconsIcon icon={CheckmarkCircle02Icon} size={18} />
                 </div>
                 <h3 className="mt-5 text-xl text-foreground">{s.title}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-foreground/70">{s.text}</p>

@@ -30,11 +30,14 @@ export function SiteFooter() {
             </h4>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               <li><Link to="/" className="hover:text-foreground">{t<string>("footer.links.home")}</Link></li>
+              <li><Link to="/nos-professionnelles" className="hover:text-foreground">Nos professionnelles</Link></li>
+              <li><Link to="/notre-approche" className="hover:text-foreground">Notre approche</Link></li>
+              <li><Link to="/services-expertises" className="hover:text-foreground">Services & expertises</Link></li>
               <li><Link to="/services/individuel" className="hover:text-foreground">{t<string>("footer.links.individual")}</Link></li>
               <li><Link to="/services/couples" className="hover:text-foreground">{t<string>("footer.links.couples")}</Link></li>
-              <li><Link to="/boutique" className="hover:text-foreground">{t<string>("footer.links.boutique")}</Link></li>
+              <li><Link to="/boutique" className="hover:text-foreground">Banque d'outils</Link></li>
+              <li><Link to="/collaboration" className="hover:text-foreground">Collaboration</Link></li>
               <li><Link to="/a-propos" className="hover:text-foreground">{t<string>("footer.links.about")}</Link></li>
-              <li><Link to="/rendez-vous" className="hover:text-foreground">{t<string>("footer.links.book")}</Link></li>
             </ul>
           </div>
 

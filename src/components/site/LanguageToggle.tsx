@@ -1,15 +1,13 @@
 import { useLang } from "@/lib/i18n";
-import { Globe } from "lucide-react";
 
 export function LanguageToggle({ className = "" }: { className?: string }) {
   const { lang, setLang } = useLang();
   return (
     <div
-      className={`inline-flex items-center gap-1 rounded-full border border-border/70 bg-background/70 p-1 text-xs font-medium ${className}`}
+      className={`inline-flex items-center rounded-full border border-border/70 bg-background/70 p-1 text-xs font-medium ${className}`}
       role="group"
       aria-label="Language switch"
     >
-      <Globe className="ml-2 h-3.5 w-3.5 text-muted-foreground" aria-hidden />
       <button
         type="button"
         onClick={() => setLang("fr")}
