@@ -7,8 +7,6 @@ import { JANE_STAFF } from "@/lib/links";
 import { useL } from "@/lib/i18n";
 import therapist1 from "@/assets/vanessa.png";
 import therapist2 from "@/assets/anabelle.png";
-import alexandreImg from "@/assets/team-duo-2.avif";
-import marieImg from "@/assets/team-duo-3.avif";
 
 export const Route = createFileRoute("/nos-professionnelles")({
   head: () => ({
