@@ -4,6 +4,7 @@ import { useT, useL } from "@/lib/i18n";
 
 export function SiteFooter() {
   const t = useT();
+  const l = useL();
   return (
     <footer className="mt-24 border-t border-border/60 bg-muted/60">
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8">
