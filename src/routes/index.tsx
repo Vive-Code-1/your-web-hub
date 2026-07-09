@@ -14,7 +14,10 @@ import {
   BubbleChatIcon,
   ConversationIcon,
   UserQuestion02Icon,
+  ShoppingBag03Icon,
+  CheckmarkCircle02Icon,
 } from "@hugeicons/core-free-icons";
+import { getProduct } from "@/lib/products";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
