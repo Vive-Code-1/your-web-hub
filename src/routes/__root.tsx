@@ -14,6 +14,7 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/site/SiteHeader";
 import { SiteFooter } from "../components/site/SiteFooter";
 import { StickyMobileCTA } from "../components/site/StickyMobileCTA";
+import { ScrollReveal } from "../components/site/ScrollReveal";
 import { LanguageProvider, useT } from "../lib/i18n";
 
 function NotFoundComponent() {
@@ -144,6 +145,7 @@ function RootComponent() {
     <QueryClientProvider client={queryClient}>
       <LanguageProvider>
         <div className="flex min-h-screen flex-col">
+          <ScrollReveal />
           <SiteHeader />
           <main className="flex-1">
             <Outlet />
