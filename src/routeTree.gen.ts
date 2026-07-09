@@ -9,16 +9,41 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as ServicesExpertisesRouteImport } from './routes/services-expertises'
 import { Route as RendezVousRouteImport } from './routes/rendez-vous'
+import { Route as NotreApprocheRouteImport } from './routes/notre-approche'
+import { Route as NosProfessionnellesRouteImport } from './routes/nos-professionnelles'
+import { Route as CollaborationRouteImport } from './routes/collaboration'
 import { Route as BoutiqueRouteImport } from './routes/boutique'
 import { Route as AProposRouteImport } from './routes/a-propos'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndividuelRouteImport } from './routes/services.individuel'
 import { Route as ServicesCouplesRouteImport } from './routes/services.couples'
+import { Route as ProduitsSlugRouteImport } from './routes/produits.$slug'
 
+const ServicesExpertisesRoute = ServicesExpertisesRouteImport.update({
+  id: '/services-expertises',
+  path: '/services-expertises',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const RendezVousRoute = RendezVousRouteImport.update({
   id: '/rendez-vous',
   path: '/rendez-vous',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NotreApprocheRoute = NotreApprocheRouteImport.update({
+  id: '/notre-approche',
+  path: '/notre-approche',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const NosProfessionnellesRoute = NosProfessionnellesRouteImport.update({
+  id: '/nos-professionnelles',
+  path: '/nos-professionnelles',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const CollaborationRoute = CollaborationRouteImport.update({
+  id: '/collaboration',
+  path: '/collaboration',
   getParentRoute: () => rootRouteImport,
 } as any)
 const BoutiqueRoute = BoutiqueRouteImport.update({
@@ -46,12 +71,22 @@ const ServicesCouplesRoute = ServicesCouplesRouteImport.update({
   path: '/services/couples',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ProduitsSlugRoute = ProduitsSlugRouteImport.update({
+  id: '/produits/$slug',
+  path: '/produits/$slug',
+  getParentRoute: () => rootRouteImport,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/boutique': typeof BoutiqueRoute
+  '/collaboration': typeof CollaborationRoute
+  '/nos-professionnelles': typeof NosProfessionnellesRoute
+  '/notre-approche': typeof NotreApprocheRoute
   '/rendez-vous': typeof RendezVousRoute
+  '/services-expertises': typeof ServicesExpertisesRoute
+  '/produits/$slug': typeof ProduitsSlugRoute
   '/services/couples': typeof ServicesCouplesRoute
   '/services/individuel': typeof ServicesIndividuelRoute
 }
@@ -59,7 +94,12 @@ export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/boutique': typeof BoutiqueRoute
+  '/collaboration': typeof CollaborationRoute
+  '/nos-professionnelles': typeof NosProfessionnellesRoute
+  '/notre-approche': typeof NotreApprocheRoute
   '/rendez-vous': typeof RendezVousRoute
+  '/services-expertises': typeof ServicesExpertisesRoute
+  '/produits/$slug': typeof ProduitsSlugRoute
   '/services/couples': typeof ServicesCouplesRoute
   '/services/individuel': typeof ServicesIndividuelRoute
 }
@@ -68,7 +108,12 @@ export interface FileRoutesById {
   '/': typeof IndexRoute
   '/a-propos': typeof AProposRoute
   '/boutique': typeof BoutiqueRoute
+  '/collaboration': typeof CollaborationRoute
+  '/nos-professionnelles': typeof NosProfessionnellesRoute
+  '/notre-approche': typeof NotreApprocheRoute
   '/rendez-vous': typeof RendezVousRoute
+  '/services-expertises': typeof ServicesExpertisesRoute
+  '/produits/$slug': typeof ProduitsSlugRoute
   '/services/couples': typeof ServicesCouplesRoute
   '/services/individuel': typeof ServicesIndividuelRoute
 }
@@ -78,7 +123,12 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/boutique'
+    | '/collaboration'
+    | '/nos-professionnelles'
+    | '/notre-approche'
     | '/rendez-vous'
+    | '/services-expertises'
+    | '/produits/$slug'
     | '/services/couples'
     | '/services/individuel'
   fileRoutesByTo: FileRoutesByTo
@@ -86,7 +136,12 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/boutique'
+    | '/collaboration'
+    | '/nos-professionnelles'
+    | '/notre-approche'
     | '/rendez-vous'
+    | '/services-expertises'
+    | '/produits/$slug'
     | '/services/couples'
     | '/services/individuel'
   id:
@@ -94,7 +149,12 @@ export interface FileRouteTypes {
     | '/'
     | '/a-propos'
     | '/boutique'
+    | '/collaboration'
+    | '/nos-professionnelles'
+    | '/notre-approche'
     | '/rendez-vous'
+    | '/services-expertises'
+    | '/produits/$slug'
     | '/services/couples'
     | '/services/individuel'
   fileRoutesById: FileRoutesById
@@ -103,18 +163,51 @@ export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AProposRoute: typeof AProposRoute
   BoutiqueRoute: typeof BoutiqueRoute
+  CollaborationRoute: typeof CollaborationRoute
+  NosProfessionnellesRoute: typeof NosProfessionnellesRoute
+  NotreApprocheRoute: typeof NotreApprocheRoute
   RendezVousRoute: typeof RendezVousRoute
+  ServicesExpertisesRoute: typeof ServicesExpertisesRoute
+  ProduitsSlugRoute: typeof ProduitsSlugRoute
   ServicesCouplesRoute: typeof ServicesCouplesRoute
   ServicesIndividuelRoute: typeof ServicesIndividuelRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/services-expertises': {
+      id: '/services-expertises'
+      path: '/services-expertises'
+      fullPath: '/services-expertises'
+      preLoaderRoute: typeof ServicesExpertisesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/rendez-vous': {
       id: '/rendez-vous'
       path: '/rendez-vous'
       fullPath: '/rendez-vous'
       preLoaderRoute: typeof RendezVousRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/notre-approche': {
+      id: '/notre-approche'
+      path: '/notre-approche'
+      fullPath: '/notre-approche'
+      preLoaderRoute: typeof NotreApprocheRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/nos-professionnelles': {
+      id: '/nos-professionnelles'
+      path: '/nos-professionnelles'
+      fullPath: '/nos-professionnelles'
+      preLoaderRoute: typeof NosProfessionnellesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/collaboration': {
+      id: '/collaboration'
+      path: '/collaboration'
+      fullPath: '/collaboration'
+      preLoaderRoute: typeof CollaborationRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/boutique': {
@@ -152,6 +245,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesCouplesRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/produits/$slug': {
+      id: '/produits/$slug'
+      path: '/produits/$slug'
+      fullPath: '/produits/$slug'
+      preLoaderRoute: typeof ProduitsSlugRouteImport
+      parentRoute: typeof rootRouteImport
+    }
   }
 }
 
@@ -159,7 +259,12 @@ const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AProposRoute: AProposRoute,
   BoutiqueRoute: BoutiqueRoute,
+  CollaborationRoute: CollaborationRoute,
+  NosProfessionnellesRoute: NosProfessionnellesRoute,
+  NotreApprocheRoute: NotreApprocheRoute,
   RendezVousRoute: RendezVousRoute,
+  ServicesExpertisesRoute: ServicesExpertisesRoute,
+  ProduitsSlugRoute: ProduitsSlugRoute,
   ServicesCouplesRoute: ServicesCouplesRoute,
   ServicesIndividuelRoute: ServicesIndividuelRoute,
 }

@@ -1,15 +1,20 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
+import { HugeiconsIcon } from "@hugeicons/react";
 import {
-  Lock,
-  Video,
-  Clock,
-  Handshake,
-  ShieldCheck,
-  ArrowRight,
-  Star,
-  Sparkles,
-  MessageCircle,
-} from "lucide-react";
+  LockPasswordIcon,
+  VideoReplayIcon,
+  Clock01Icon,
+  HandshakeIcon,
+  Shield01Icon,
+  ArrowRight02Icon,
+  StarIcon,
+  Message02Icon,
+  HeartCrackIcon,
+  BrainIcon,
+  BubbleChatIcon,
+  ConversationIcon,
+  UserQuestion02Icon,
+} from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -19,12 +24,9 @@ import {
 } from "@/components/ui/accordion";
 import { CTABand } from "@/components/site/CTABand";
 import { useT } from "@/lib/i18n";
+import { JANE_BOOK_URL } from "@/lib/links";
 import heroImage from "@/assets/hero-interior.jpg";
 import therapistsImage from "@/assets/therapists.jpg";
-import product1 from "@/assets/product-1.jpg";
-import product2 from "@/assets/product-2.jpg";
-import product3 from "@/assets/product-3.jpg";
-import product4 from "@/assets/product-4.jpg";
 
 export const Route = createFileRoute("/")({
   head: () => ({
@@ -43,15 +45,14 @@ export const Route = createFileRoute("/")({
   component: HomePage,
 });
 
-const pillarIcons = [Lock, Video, Clock, Handshake, ShieldCheck];
-const productImgs = [product1, product2, product3, product4];
+const pillarIcons = [LockPasswordIcon, VideoReplayIcon, Clock01Icon, HandshakeIcon, Shield01Icon];
+const problemIcons = [HeartCrackIcon, BrainIcon, UserQuestion02Icon, BubbleChatIcon, ConversationIcon];
 
 function HomePage() {
   const t = useT();
   const pillars = t<Array<{ title: string; text: string }>>("home.pillars");
   const steps = t<Array<{ title: string; text: string }>>("home.steps");
   const problems = t<Array<{ title: string; text: string }>>("home.problems");
-  const products = t<Array<{ title: string; price: string }>>("home.products");
   const reviews = t<Array<{ text: string; author: string }>>("home.reviews");
   const faqs = t<Array<{ q: string; a: string }>>("home.faqs");
   const chips = t<string[]>("home.chips");
@@ -73,9 +74,9 @@ function HomePage() {
             </p>
             <div className="mt-9 flex flex-wrap items-center gap-3">
               <Button asChild size="lg" className="rounded-full px-8 py-6 text-base">
-                <Link to="/rendez-vous">
-                  {t<string>("common.bookCta")} <ArrowRight className="ml-1 h-4 w-4" />
-                </Link>
+                <a href={JANE_BOOK_URL} target="_blank" rel="noopener noreferrer">
+                  {t<string>("common.bookCta")} <HugeiconsIcon icon={ArrowRight02Icon} size={16} className="ml-1" />
+                </a>
               </Button>
               <Button
                 asChild
@@ -89,9 +90,9 @@ function HomePage() {
               </Button>
             </div>
             <div className="mt-10 flex flex-wrap items-center gap-x-8 gap-y-3 text-xs uppercase tracking-widest text-muted-foreground">
-              <span className="flex items-center gap-2"><Lock className="h-3.5 w-3.5" /> {t<string>("home.trust1")}</span>
-              <span className="flex items-center gap-2"><Clock className="h-3.5 w-3.5" /> {t<string>("home.trust2")}</span>
-              <span className="flex items-center gap-2"><ShieldCheck className="h-3.5 w-3.5" /> {t<string>("home.trust3")}</span>
+              <span className="flex items-center gap-2"><HugeiconsIcon icon={LockPasswordIcon} size={14} /> {t<string>("home.trust1")}</span>
+              <span className="flex items-center gap-2"><HugeiconsIcon icon={Clock01Icon} size={14} /> {t<string>("home.trust2")}</span>
+              <span className="flex items-center gap-2"><HugeiconsIcon icon={Shield01Icon} size={14} /> {t<string>("home.trust3")}</span>
             </div>
           </div>
 
@@ -126,18 +127,15 @@ function HomePage() {
             <p className="mt-4 text-base text-foreground/70">{t<string>("home.pillarsLead")}</p>
           </div>
           <div className="mt-14 grid gap-5 sm:grid-cols-2 lg:grid-cols-5">
-            {pillars.map((p, i) => {
-              const Icon = pillarIcons[i];
-              return (
-                <div key={p.title} className="flex flex-col items-start rounded-2xl bg-background/80 p-6 shadow-soft">
-                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground">
-                    <Icon className="h-5 w-5" />
-                  </div>
-                  <h3 className="mt-5 text-lg text-foreground">{p.title}</h3>
-                  <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+            {pillars.map((p, i) => (
+              <div key={p.title} className="flex flex-col items-start rounded-2xl bg-background/80 p-6 shadow-soft">
+                <div className="flex h-11 w-11 items-center justify-center rounded-full bg-primary text-primary-foreground">
+                  <HugeiconsIcon icon={pillarIcons[i]} size={20} />
                 </div>
-              );
-            })}
+                <h3 className="mt-5 text-lg text-foreground">{p.title}</h3>
+                <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -188,63 +186,26 @@ function HomePage() {
             <p className="text-base leading-relaxed text-muted-foreground">{t<string>("home.problemsLead")}</p>
           </div>
           <div className="mt-14 grid gap-4 sm:grid-cols-2 lg:grid-cols-3">
-            {problems.map((p) => (
+            {problems.map((p, i) => (
               <div
                 key={p.title}
                 className="group flex flex-col justify-between rounded-3xl border border-border bg-background p-7 transition-all hover:-translate-y-1 hover:shadow-elegant"
               >
                 <div>
-                  <div className="flex h-9 w-9 items-center justify-center rounded-full bg-accent text-foreground">
-                    <Sparkles className="h-4 w-4" />
+                  <div className="flex h-11 w-11 items-center justify-center rounded-full bg-accent text-foreground">
+                    <HugeiconsIcon icon={problemIcons[i]} size={20} />
                   </div>
                   <h3 className="mt-5 text-xl text-foreground">{p.title}</h3>
                   <p className="mt-2 text-sm leading-relaxed text-muted-foreground">{p.text}</p>
                 </div>
-                <Link
-                  to="/rendez-vous"
+                <a
+                  href={JANE_BOOK_URL}
+                  target="_blank"
+                  rel="noopener noreferrer"
                   className="mt-6 inline-flex items-center gap-1 text-sm font-medium text-foreground hover:gap-2 transition-all"
                 >
-                  {t<string>("home.talk")} <ArrowRight className="h-4 w-4" />
-                </Link>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
-
-      {/* BOUTIQUE PREVIEW */}
-      <section className="px-5 py-20 md:px-8 md:py-28">
-        <div className="mx-auto max-w-7xl">
-          <div className="flex flex-wrap items-end justify-between gap-6">
-            <div>
-              <p className="text-xs font-semibold uppercase tracking-widest text-muted-foreground">
-                {t<string>("home.shopEyebrow")}
-              </p>
-              <h2 className="mt-3 text-4xl leading-tight text-foreground md:text-5xl">
-                {t<string>("home.shopTitle")}
-              </h2>
-            </div>
-            <Button asChild variant="outline" className="rounded-full border-foreground/20">
-              <Link to="/boutique">{t<string>("home.viewShop")} <ArrowRight className="ml-1 h-4 w-4" /></Link>
-            </Button>
-          </div>
-          <div className="mt-12 grid gap-6 sm:grid-cols-2 lg:grid-cols-4">
-            {products.map((p, i) => (
-              <div key={p.title} className="group cursor-pointer">
-                <div className="aspect-[4/5] overflow-hidden rounded-3xl bg-muted">
-                  <img
-                    src={productImgs[i]}
-                    alt={p.title}
-                    loading="lazy"
-                    width={800}
-                    height={1000}
-                    className="h-full w-full object-cover transition-transform duration-700 group-hover:scale-105"
-                  />
-                </div>
-                <div className="mt-4 flex items-baseline justify-between">
-                  <h3 className="text-lg text-foreground">{p.title}</h3>
-                  <span className="text-sm font-medium text-foreground">{p.price}</span>
-                </div>
+                  {t<string>("home.talk")} <HugeiconsIcon icon={ArrowRight02Icon} size={14} />
+                </a>
               </div>
             ))}
           </div>
@@ -284,8 +245,8 @@ function HomePage() {
               </div>
               <div className="mt-8">
                 <Button asChild variant="link" className="h-auto p-0 text-foreground">
-                  <Link to="/a-propos">
-                    {t<string>("home.discoverTeam")} <ArrowRight className="ml-1 h-4 w-4" />
+                  <Link to="/nos-professionnelles">
+                    {t<string>("home.discoverTeam")} <HugeiconsIcon icon={ArrowRight02Icon} size={14} className="ml-1" />
                   </Link>
                 </Button>
               </div>
@@ -298,7 +259,7 @@ function HomePage() {
               <div key={r.author} className="rounded-3xl bg-background p-8 shadow-soft">
                 <div className="flex gap-1 text-foreground">
                   {Array.from({ length: 5 }).map((_, i) => (
-                    <Star key={i} className="h-4 w-4 fill-current" />
+                    <HugeiconsIcon key={i} icon={StarIcon} size={14} />
                   ))}
                 </div>
                 <p className="mt-5 text-base italic leading-relaxed text-foreground/85">« {r.text} »</p>
@@ -310,7 +271,7 @@ function HomePage() {
           {/* FAQ */}
           <div className="mt-24 grid gap-10 md:grid-cols-[1fr_1.5fr]">
             <div>
-              <MessageCircle className="h-6 w-6 text-foreground" />
+              <HugeiconsIcon icon={Message02Icon} size={24} />
               <p className="mt-4 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
                 {t<string>("home.faqEyebrow")}
               </p>

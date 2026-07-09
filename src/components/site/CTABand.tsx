@@ -1,6 +1,6 @@
-import { Link } from "@tanstack/react-router";
 import { Button } from "@/components/ui/button";
 import { useT } from "@/lib/i18n";
+import { JANE_BOOK_URL } from "@/lib/links";
 
 interface CTABandProps {
   eyebrow?: string;
@@ -15,7 +15,7 @@ export function CTABand({
   title,
   description,
   primaryLabel,
-  primaryTo = "/rendez-vous",
+  primaryTo = JANE_BOOK_URL,
 }: CTABandProps) {
   const t = useT();
   return (
@@ -32,7 +32,7 @@ export function CTABand({
         )}
         <div className="mt-8">
           <Button asChild size="lg" className="rounded-full px-8 py-6 text-base">
-            <Link to={primaryTo}>{primaryLabel ?? t<string>("common.bookCta")}</Link>
+            <a href={primaryTo} target="_blank" rel="noopener noreferrer">{primaryLabel ?? t<string>("common.bookCta")}</a>
           </Button>
         </div>
         <p className="mt-4 text-xs text-foreground/60">{t<string>("common.available24h")}</p>
