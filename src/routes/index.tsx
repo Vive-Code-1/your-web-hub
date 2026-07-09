@@ -26,7 +26,8 @@ import { CTABand } from "@/components/site/CTABand";
 import { useT } from "@/lib/i18n";
 import { JANE_BOOK_URL } from "@/lib/links";
 import heroImage from "@/assets/hero-interior.jpg";
-import therapistsImage from "@/assets/therapists.jpg";
+import therapistsAsset from "@/assets/team-duo-1.avif.asset.json";
+const therapistsImage = therapistsAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({
