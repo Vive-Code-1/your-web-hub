@@ -9,7 +9,7 @@ import {
 } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import { CTABand } from "@/components/site/CTABand";
-import { products, getProduct, useLocalizedProduct, useLocalizedProducts } from "@/lib/products";
+import { getProduct, useLocalizedProduct, useLocalizedProducts } from "@/lib/products";
 import { useL } from "@/lib/i18n";
 
 export const Route = createFileRoute("/produits/$slug")({
