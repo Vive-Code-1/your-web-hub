@@ -5,14 +5,10 @@ import { Button } from "@/components/ui/button";
 import { CTABand } from "@/components/site/CTABand";
 import { JANE_STAFF } from "@/lib/links";
 import { useL } from "@/lib/i18n";
-import vanessaAsset from "@/assets/vanessa.png.asset.json";
-import anabelleAsset from "@/assets/anabelle.png.asset.json";
-import duo1 from "@/assets/team-duo-2.avif.asset.json";
-import duo2 from "@/assets/team-duo-3.avif.asset.json";
-const therapist1 = vanessaAsset.url;
-const therapist2 = anabelleAsset.url;
-const alexandreImg = duo1.url;
-const marieImg = duo2.url;
+import therapist1 from "@/assets/vanessa.png";
+import therapist2 from "@/assets/anabelle.png";
+import alexandreImg from "@/assets/team-duo-2.avif";
+import marieImg from "@/assets/team-duo-3.avif";
 
 export const Route = createFileRoute("/nos-professionnelles")({
   head: () => ({
