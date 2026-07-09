@@ -216,6 +216,9 @@ function HomePage() {
         </div>
       </section>
 
+      {/* FEATURED PRODUCT */}
+      <FeaturedProduct />
+
       {/* TRUST & SOCIAL PROOF */}
       <section className="bg-muted/60 px-5 py-20 md:px-8 md:py-28">
         <div className="mx-auto max-w-7xl">
