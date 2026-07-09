@@ -47,21 +47,7 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-foreground/80 outline-none transition-colors hover:text-foreground">
-              {t<string>("nav.professionals")}
-              <HugeiconsIcon icon={ArrowDown01Icon} size={14} />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56 rounded-2xl border-border">
-              {proSubmenu.map((s) => (
-                <DropdownMenuItem key={s.to} asChild className="rounded-xl">
-                  <Link to={s.to} className="w-full cursor-pointer">
-                    {s.label}
-                  </Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <HoverMenu label={t<string>("nav.professionals")} items={proSubmenu} />
           <Link
             to="/a-propos"
             className="text-sm text-foreground/80 transition-colors hover:text-foreground"
