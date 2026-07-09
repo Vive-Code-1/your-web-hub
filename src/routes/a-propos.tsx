@@ -21,7 +21,7 @@ export const Route = createFileRoute("/a-propos")({
   component: AboutPage,
 });
 
-const therapistImgs = [therapist1, therapist2];
+const therapistImgs = [vanessaAsset.url, anabelleAsset.url];
 const valueIcons = [ShieldCheck, Heart, Users, Sparkles];
 
 interface Therapist { name: string; role: string; creds: string[]; bio: string; approach: string }
