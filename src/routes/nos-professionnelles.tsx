@@ -4,8 +4,14 @@ import { Calendar03Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import { CTABand } from "@/components/site/CTABand";
 import { JANE_STAFF } from "@/lib/links";
-import therapist1 from "@/assets/therapist-1.jpg";
-import therapist2 from "@/assets/therapist-2.jpg";
+import vanessaAsset from "@/assets/vanessa.png.asset.json";
+import anabelleAsset from "@/assets/anabelle.png.asset.json";
+import duo1 from "@/assets/team-duo-2.avif.asset.json";
+import duo2 from "@/assets/team-duo-3.avif.asset.json";
+const therapist1 = vanessaAsset.url;
+const therapist2 = anabelleAsset.url;
+const alexandreImg = duo1.url;
+const marieImg = duo2.url;
 
 export const Route = createFileRoute("/nos-professionnelles")({
   head: () => ({
