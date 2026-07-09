@@ -65,7 +65,7 @@ const team: Pro[] = [
     name: "Alexandre Morier-Rouzier",
     role: "Conseiller en sécurité financière",
     bookUrl: JANE_STAFF.alexandre,
-    image: therapist1,
+    image: alexandreImg,
     bio: [
       "Mon objectif en tant que conseiller en sécurité financière est d'aider chaque personne que j'accompagne à prendre le contrôle de sa santé financière, aujourd'hui et pour les années à venir.",
       "Je vous propose un accompagnement personnalisé pour mettre en place des solutions adaptées à vos besoins — que ce soit en assurance, en épargne, en planification de retraite ou en gestion des risques. Chaque situation est unique, et c'est en prenant le temps de bien comprendre la vôtre que je peux vous offrir des stratégies concrètes, efficaces et réalistes.",
