@@ -193,6 +193,38 @@ function TeamPage() {
                     <p key={k}>{para}</p>
                   ))}
                 </div>
+
+                {/* Credentials */}
+                <div className="mt-8 rounded-2xl border border-border bg-accent/40 p-5">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-foreground/70">
+                    <HugeiconsIcon icon={Award01Icon} size={14} />
+                    {l({ fr: "Formation & titres", en: "Credentials & training" })}
+                  </div>
+                  <ul className="mt-3 space-y-2">
+                    {p.credentials.map((c) => (
+                      <li key={c} className="flex items-start gap-2 text-sm text-foreground/85">
+                        <HugeiconsIcon icon={CheckmarkCircle02Icon} size={16} className="mt-0.5 flex-none text-foreground" />
+                        <span>{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Expertise chips */}
+                <div className="mt-6">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                    <HugeiconsIcon icon={BookOpen01Icon} size={14} />
+                    {l({ fr: "Domaines d'expertise", en: "Areas of expertise" })}
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {p.expertise.map((e) => (
+                      <span key={e} className="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground">
+                        {e}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
                 <div className="mt-8">
                   <Button asChild size="lg" className="rounded-full px-8 py-6 text-base">
                     <a href={p.bookUrl} target="_blank" rel="noopener noreferrer">
