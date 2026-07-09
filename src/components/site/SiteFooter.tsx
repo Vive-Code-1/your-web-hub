@@ -1,6 +1,6 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Shield, Instagram } from "lucide-react";
-import { useT } from "@/lib/i18n";
+import { useT, useL } from "@/lib/i18n";
 
 export function SiteFooter() {
   const t = useT();
