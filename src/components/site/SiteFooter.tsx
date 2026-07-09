@@ -34,9 +34,6 @@ export function SiteFooter() {
               <li><Link to="/nos-professionnelles" className="hover:text-foreground">{l({ fr: "Nos professionnelles", en: "Our professionals" })}</Link></li>
               <li><Link to="/notre-approche" className="hover:text-foreground">{l({ fr: "Notre approche", en: "Our approach" })}</Link></li>
               <li><Link to="/services-expertises" className="hover:text-foreground">{l({ fr: "Services & expertises", en: "Services & expertise" })}</Link></li>
-              <li><Link to="/services/individuel" className="hover:text-foreground">{t<string>("footer.links.individual")}</Link></li>
-              <li><Link to="/services/couples" className="hover:text-foreground">{t<string>("footer.links.couples")}</Link></li>
-              <li><Link to="/boutique" className="hover:text-foreground">{l({ fr: "Banque d'outils", en: "Tool bank" })}</Link></li>
               <li><Link to="/collaboration" className="hover:text-foreground">{l({ fr: "Collaboration", en: "Collaboration" })}</Link></li>
               <li><Link to="/a-propos" className="hover:text-foreground">{t<string>("footer.links.about")}</Link></li>
             </ul>
