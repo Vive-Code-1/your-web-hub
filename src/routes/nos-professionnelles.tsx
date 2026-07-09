@@ -142,12 +142,12 @@ function TeamPage() {
           {team.map((p, i) => (
             <article
               key={p.name}
-              className={`grid gap-10 md:grid-cols-[minmax(0,1fr)_minmax(0,1.4fr)] md:items-start ${
+              className={`grid gap-10 md:grid-cols-2 md:items-center ${
                 i % 2 === 1 ? "md:[&>div:first-child]:order-2" : ""
               }`}
             >
               <div>
-                <div className="arch-frame aspect-[4/5] max-w-sm shadow-elegant">
+                <div className="arch-frame aspect-[4/5] w-full shadow-elegant">
                   <img
                     src={p.image}
                     alt={p.name}
