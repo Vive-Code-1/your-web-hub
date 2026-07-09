@@ -311,7 +311,8 @@ function HomePage() {
 }
 
 function FeaturedProduct() {
-  const product = getProduct("entretenons-notre-seduction");
+  const l = useL();
+  const product = useLocalizedProduct("entretenons-notre-seduction");
   if (!product) return null;
   return (
     <section className="px-5 py-20 md:px-8 md:py-28">
@@ -319,7 +320,7 @@ function FeaturedProduct() {
         <div className="grid gap-10 p-8 md:grid-cols-[1.1fr_1fr] md:items-center md:gap-16 md:p-14">
           <div className="relative">
             <span className="absolute left-4 top-4 z-10 rounded-full bg-foreground px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-background">
-              Nouveauté · Édition limitée
+              {l({ fr: "Nouveauté · Édition limitée", en: "New · Limited edition" })}
             </span>
             <div className="rounded-[2rem] bg-background/70 p-8 shadow-elegant md:p-12">
               <img
@@ -333,7 +334,9 @@ function FeaturedProduct() {
             </div>
           </div>
           <div>
-            <p className="script text-2xl text-foreground/60">notre outil signature</p>
+            <p className="script text-2xl text-foreground/60">
+              {l({ fr: "notre outil signature", en: "our signature tool" })}
+            </p>
             <h2 className="mt-3 font-display text-4xl leading-tight text-foreground md:text-5xl">
               {product.title}
             </h2>
@@ -351,14 +354,14 @@ function FeaturedProduct() {
             <div className="mt-8 flex flex-wrap items-center gap-5">
               <span className="font-display text-4xl text-foreground">{product.price}</span>
               <span className="rounded-full border border-foreground/20 bg-background/60 px-3 py-1 text-xs font-medium text-foreground">
-                Livraison numérique immédiate
+                {l({ fr: "Livraison numérique immédiate", en: "Instant digital delivery" })}
               </span>
             </div>
             <div className="mt-8 flex flex-wrap items-center gap-3">
               <Button asChild size="lg" className="rounded-full px-8 py-6 text-base">
                 <Link to="/produits/$slug" params={{ slug: product.slug }}>
                   <HugeiconsIcon icon={ShoppingBag03Icon} size={16} className="mr-2" />
-                  Je le veux
+                  {l({ fr: "Je le veux", en: "I want it" })}
                 </Link>
               </Button>
               <Button
@@ -368,7 +371,8 @@ function FeaturedProduct() {
                 className="rounded-full border-foreground/20 bg-transparent px-8 py-6 text-base"
               >
                 <Link to="/boutique">
-                  Voir la boutique <HugeiconsIcon icon={ArrowRight02Icon} size={14} className="ml-1" />
+                  {l({ fr: "Voir la boutique", en: "View the shop" })}{" "}
+                  <HugeiconsIcon icon={ArrowRight02Icon} size={14} className="ml-1" />
                 </Link>
               </Button>
             </div>
@@ -378,3 +382,4 @@ function FeaturedProduct() {
     </section>
   );
 }
+
