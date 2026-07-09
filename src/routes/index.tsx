@@ -110,10 +110,15 @@ function HomePage() {
                 height={1200}
               />
             </div>
-            <div className="absolute -right-4 top-8 flex h-32 w-32 flex-col items-center justify-center rounded-full bg-ivory text-center text-[11px] font-semibold uppercase tracking-widest text-foreground shadow-soft md:-right-8 md:h-40 md:w-40 md:text-xs">
+            <a
+              href={JANE_BOOK_URL}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="absolute -right-4 top-8 flex h-32 w-32 flex-col items-center justify-center rounded-full bg-ivory text-center text-[11px] font-semibold uppercase tracking-widest text-foreground shadow-soft transition-transform hover:scale-105 md:-right-8 md:h-40 md:w-40 md:text-xs"
+            >
               <span>{t<string>("home.badge1")}</span>
               <span>{t<string>("home.badge2")}</span>
-            </div>
+            </a>
           </div>
         </div>
       </section>
