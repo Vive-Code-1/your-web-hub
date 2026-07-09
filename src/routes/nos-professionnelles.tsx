@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Calendar03Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons";
+import { Calendar03Icon, ArrowRight02Icon, CheckmarkCircle02Icon, AwardStar01Icon, BookOpen01Icon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import { CTABand } from "@/components/site/CTABand";
 import { JANE_STAFF } from "@/lib/links";
