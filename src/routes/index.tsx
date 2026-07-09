@@ -17,7 +17,7 @@ import {
   ShoppingBag03Icon,
   CheckmarkCircle02Icon,
 } from "@hugeicons/core-free-icons";
-import { getProduct } from "@/lib/products";
+import { useLocalizedProduct } from "@/lib/products";
 import { Button } from "@/components/ui/button";
 import {
   Accordion,
@@ -26,7 +26,7 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { CTABand } from "@/components/site/CTABand";
-import { useT } from "@/lib/i18n";
+import { useT, useL } from "@/lib/i18n";
 import { JANE_BOOK_URL } from "@/lib/links";
 import heroImage from "@/assets/hero-interior.jpg";
 import therapistsAsset from "@/assets/team-duo-1.avif.asset.json";
