@@ -7,7 +7,7 @@ import {
   DollarCircleIcon,
   BrainIcon,
   HeartCheckIcon,
-  Flower01Icon,
+  FlowerIcon,
   ArrowRight02Icon,
 } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
@@ -99,7 +99,7 @@ const dimensions = [
     ],
   },
   {
-    icon: Flower01Icon,
+    icon: FlowerIcon,
     label: "Dimension physique",
     intro:
       "La dimension physique englobe l'image corporelle, la relation au corps, l'énergie et la santé générale. Ces éléments influencent directement le désir, la présence à soi et le confort dans les relations intimes.",

@@ -110,7 +110,7 @@ function ProductPage() {
             </div>
 
             <div className="mt-8 space-y-3">
-              {product.details.map((d) => (
+              {product.details.map((d: string) => (
                 <div key={d} className="flex items-start gap-3 text-sm text-foreground/85">
                   <HugeiconsIcon icon={CheckmarkCircle02Icon} size={18} className="mt-0.5 flex-none" />
                   <span>{d}</span>

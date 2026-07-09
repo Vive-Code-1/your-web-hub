@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Mail01Icon, HeartCheckIcon, Bulb01Icon, UserGroupIcon, PuzzleIcon } from "@hugeicons/core-free-icons";
+import { Mail01Icon, HeartCheckIcon, BulbIcon, UserGroupIcon, PuzzleIcon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import heroImage from "@/assets/therapists.jpg";
 
@@ -23,7 +23,7 @@ export const Route = createFileRoute("/collaboration")({
 
 const values = [
   { icon: UserGroupIcon, label: "Coopération" },
-  { icon: Bulb01Icon, label: "Créativité" },
+  { icon: BulbIcon, label: "Créativité" },
   { icon: HeartCheckIcon, label: "Empathie & humanité" },
   { icon: PuzzleIcon, label: "Liberté & santé globale" },
 ];
