@@ -2,17 +2,20 @@ import { Link } from "@tanstack/react-router";
 import { Menu, X } from "lucide-react";
 import { useState } from "react";
 import { Button } from "@/components/ui/button";
-
-const nav = [
-  { to: "/", label: "Accueil" },
-  { to: "/services/individuel", label: "Individuel" },
-  { to: "/services/couples", label: "Couples" },
-  { to: "/boutique", label: "Boutique" },
-  { to: "/a-propos", label: "À propos" },
-] as const;
+import { useT } from "@/lib/i18n";
+import { LanguageToggle } from "./LanguageToggle";
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
+  const t = useT();
+
+  const nav = [
+    { to: "/", label: t<string>("nav.home") },
+    { to: "/services/individuel", label: t<string>("nav.individual") },
+    { to: "/services/couples", label: t<string>("nav.couples") },
+    { to: "/boutique", label: t<string>("nav.boutique") },
+    { to: "/a-propos", label: t<string>("nav.about") },
+  ] as const;
 
   return (
     <header className="sticky top-0 z-40 border-b border-border/60 bg-background/80 backdrop-blur-md">
@@ -38,19 +41,23 @@ export function SiteHeader() {
           ))}
         </nav>
 
-        <div className="hidden md:block">
+        <div className="hidden items-center gap-3 md:flex">
+          <LanguageToggle />
           <Button asChild className="rounded-full px-6">
-            <Link to="/rendez-vous">Prendre rendez-vous</Link>
+            <Link to="/rendez-vous">{t<string>("nav.book")}</Link>
           </Button>
         </div>
 
-        <button
-          onClick={() => setOpen((o) => !o)}
-          className="rounded-full p-2 text-foreground md:hidden"
-          aria-label="Menu"
-        >
-          {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-        </button>
+        <div className="flex items-center gap-2 md:hidden">
+          <LanguageToggle />
+          <button
+            onClick={() => setOpen((o) => !o)}
+            className="rounded-full p-2 text-foreground"
+            aria-label={t<string>("nav.menu")}
+          >
+            {open ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -70,7 +77,7 @@ export function SiteHeader() {
             ))}
             <Button asChild className="mt-2 rounded-full">
               <Link to="/rendez-vous" onClick={() => setOpen(false)}>
-                Prendre rendez-vous
+                {t<string>("nav.book")}
               </Link>
             </Button>
           </nav>
