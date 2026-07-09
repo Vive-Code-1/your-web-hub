@@ -1,7 +1,9 @@
 import { Link } from "@tanstack/react-router";
 import { Mail, Shield, Instagram } from "lucide-react";
+import { useT } from "@/lib/i18n";
 
 export function SiteFooter() {
+  const t = useT();
   return (
     <footer className="mt-24 border-t border-border/60 bg-muted/60">
       <div className="mx-auto max-w-7xl px-5 py-16 md:px-8">
@@ -10,37 +12,35 @@ export function SiteFooter() {
             <div className="flex flex-col leading-none">
               <span className="script text-3xl text-foreground">Evana</span>
               <span className="text-[10px] font-medium tracking-[0.3em] text-muted-foreground">
-                CLINIQUE MULTIDISCIPLINAIRE
+                {t<string>("footer.subtitle")}
               </span>
             </div>
             <p className="mt-5 max-w-sm text-sm leading-relaxed text-muted-foreground">
-              Deux sexologues, une mission : t'accompagner dans l'amélioration
-              de ton bien-être personnel, relationnel et sexuel — en toute
-              confidentialité.
+              {t<string>("footer.tagline")}
             </p>
             <div className="mt-6 flex items-center gap-2 text-xs text-muted-foreground">
               <Shield className="h-4 w-4" />
-              <span>Consultations 100 % confidentielles & sécurisées</span>
+              <span>{t<string>("footer.secure")}</span>
             </div>
           </div>
 
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground">
-              Navigation
+              {t<string>("footer.navTitle")}
             </h4>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
-              <li><Link to="/" className="hover:text-foreground">Accueil</Link></li>
-              <li><Link to="/services/individuel" className="hover:text-foreground">Sexologie individuelle</Link></li>
-              <li><Link to="/services/couples" className="hover:text-foreground">Thérapie de couple</Link></li>
-              <li><Link to="/boutique" className="hover:text-foreground">Boutique en ligne</Link></li>
-              <li><Link to="/a-propos" className="hover:text-foreground">À propos</Link></li>
-              <li><Link to="/rendez-vous" className="hover:text-foreground">Prendre rendez-vous</Link></li>
+              <li><Link to="/" className="hover:text-foreground">{t<string>("footer.links.home")}</Link></li>
+              <li><Link to="/services/individuel" className="hover:text-foreground">{t<string>("footer.links.individual")}</Link></li>
+              <li><Link to="/services/couples" className="hover:text-foreground">{t<string>("footer.links.couples")}</Link></li>
+              <li><Link to="/boutique" className="hover:text-foreground">{t<string>("footer.links.boutique")}</Link></li>
+              <li><Link to="/a-propos" className="hover:text-foreground">{t<string>("footer.links.about")}</Link></li>
+              <li><Link to="/rendez-vous" className="hover:text-foreground">{t<string>("footer.links.book")}</Link></li>
             </ul>
           </div>
 
           <div>
             <h4 className="text-xs font-semibold uppercase tracking-widest text-foreground">
-              Contact
+              {t<string>("footer.contact")}
             </h4>
             <ul className="mt-5 space-y-3 text-sm text-muted-foreground">
               <li className="flex items-center gap-2">
@@ -51,14 +51,14 @@ export function SiteFooter() {
               </li>
             </ul>
             <p className="mt-6 text-xs leading-relaxed text-muted-foreground">
-              Réponse sous 24 h ouvrables.
+              {t<string>("footer.reply")}
             </p>
           </div>
         </div>
 
         <div className="mt-14 flex flex-col items-start justify-between gap-3 border-t border-border/60 pt-6 text-xs text-muted-foreground md:flex-row md:items-center">
-          <p>© {new Date().getFullYear()} Evana Clinique. Tous droits réservés.</p>
-          <p>Vos données sont protégées et jamais partagées.</p>
+          <p>© {new Date().getFullYear()} Evana Clinique. {t<string>("footer.rights")}</p>
+          <p>{t<string>("footer.privacy")}</p>
         </div>
       </div>
     </footer>
