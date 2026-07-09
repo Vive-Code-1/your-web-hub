@@ -3,7 +3,8 @@ import { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { ArrowRight02Icon, Shield01Icon } from "@hugeicons/core-free-icons";
 import { CTABand } from "@/components/site/CTABand";
-import { products } from "@/lib/products";
+import { useLocalizedProducts, categoryLabels, type ProductCategoryKey } from "@/lib/products";
+import { useL } from "@/lib/i18n";
 
 export const Route = createFileRoute("/boutique")({
   head: () => ({
@@ -22,35 +23,49 @@ export const Route = createFileRoute("/boutique")({
   component: BoutiquePage,
 });
 
-const categories = ["Tout", "Relationnel", "Sexualité", "Financier", "Corps"] as const;
+type Filter = "All" | ProductCategoryKey;
+const filterKeys: Filter[] = ["All", "Relationnel", "Sexualité", "Financier", "Corps"];
 
 function BoutiquePage() {
-  const [cat, setCat] = useState<(typeof categories)[number]>("Tout");
+  const l = useL();
+  const products = useLocalizedProducts();
+  const [cat, setCat] = useState<Filter>("All");
   const [tab, setTab] = useState<"free" | "paid">("free");
 
   const visible = products.filter((p) => {
     if (tab === "free" && p.paid) return false;
     if (tab === "paid" && !p.paid) return false;
-    if (cat !== "Tout" && p.category !== cat) return false;
+    if (cat !== "All" && p.category !== cat) return false;
     return true;
   });
+
+  const filterLabel = (f: Filter) =>
+    f === "All" ? l({ fr: "Tout", en: "All" }) : l(categoryLabels[f]);
 
   return (
     <>
       <section className="gradient-warm px-5 py-16 md:px-8 md:py-24">
         <div className="mx-auto max-w-4xl text-center">
-          <p className="script text-2xl text-foreground/60">notre banque d'outils</p>
+          <p className="script text-2xl text-foreground/60">
+            {l({ fr: "notre banque d'outils", en: "our tool bank" })}
+          </p>
           <h1 className="mt-3 text-4xl leading-tight tracking-tight text-foreground md:text-6xl">
-            Des <em className="italic">outils concrets</em> <br />pour cheminer à votre rythme.
+            {l({ fr: "Des ", en: "Practical " })}
+            <em className="italic">{l({ fr: "outils concrets", en: "concrete tools" })}</em>{" "}
+            <br />
+            {l({ fr: "pour cheminer à votre rythme.", en: "to move forward at your pace." })}
           </h1>
           <p className="mx-auto mt-6 max-w-2xl text-lg leading-relaxed text-muted-foreground">
-            Fiches, guides et exercices pensés par nos sexologues. Certains sont gratuits, d'autres
-            payants — tous sont conçus pour vous accompagner entre vos rencontres.
+            {l({
+              fr: "Fiches, guides et exercices pensés par nos sexologues. Certains sont gratuits, d'autres payants — tous sont conçus pour vous accompagner entre vos rencontres.",
+              en: "Sheets, guides and exercises designed by our sexologists. Some are free, others paid — all are designed to support you between your sessions.",
+            })}
           </p>
           <p className="mx-auto mt-6 max-w-2xl text-xs italic text-muted-foreground">
-            * Ces outils sont mis à votre disposition pour un usage personnel uniquement. Leur contenu
-            demeure la propriété intellectuelle d'Evana Clinique et ne peut être reproduit, diffusé ou
-            utilisé à des fins commerciales sans autorisation préalable.
+            {l({
+              fr: "* Ces outils sont mis à votre disposition pour un usage personnel uniquement. Leur contenu demeure la propriété intellectuelle d'Evana Clinique et ne peut être reproduit, diffusé ou utilisé à des fins commerciales sans autorisation préalable.",
+              en: "* These tools are made available to you for personal use only. Their content remains the intellectual property of Evana Clinique and may not be reproduced, distributed or used for commercial purposes without prior authorisation.",
+            })}
           </p>
         </div>
       </section>
@@ -64,7 +79,7 @@ function BoutiquePage() {
                 tab === "free" ? "bg-primary text-primary-foreground" : "text-foreground/70"
               }`}
             >
-              Outils gratuits
+              {l({ fr: "Outils gratuits", en: "Free tools" })}
             </button>
             <button
               onClick={() => setTab("paid")}
@@ -72,12 +87,12 @@ function BoutiquePage() {
                 tab === "paid" ? "bg-primary text-primary-foreground" : "text-foreground/70"
               }`}
             >
-              Outils payants
+              {l({ fr: "Outils payants", en: "Paid tools" })}
             </button>
           </div>
 
           <div className="flex flex-wrap gap-2">
-            {categories.map((c) => (
+            {filterKeys.map((c) => (
               <button
                 key={c}
                 onClick={() => setCat(c)}
@@ -87,7 +102,7 @@ function BoutiquePage() {
                     : "border-border bg-background text-foreground hover:border-foreground/40"
                 }`}
               >
-                {c}
+                {filterLabel(c)}
               </button>
             ))}
           </div>
@@ -108,7 +123,7 @@ function BoutiquePage() {
                     className="h-full w-full object-contain transition-transform duration-700 group-hover:scale-105"
                   />
                   <span className="absolute left-4 top-4 rounded-full bg-background/90 px-3 py-1 text-[10px] font-semibold uppercase tracking-widest text-foreground">
-                    {p.category}
+                    {p.categoryLabel}
                   </span>
                 </div>
                 <div className="mt-5 flex items-baseline justify-between gap-3">
@@ -121,7 +136,8 @@ function BoutiquePage() {
                   {p.short}
                 </p>
                 <span className="mt-4 inline-flex items-center gap-1 text-sm font-medium text-foreground group-hover:gap-2 transition-all">
-                  Voir l'outil <HugeiconsIcon icon={ArrowRight02Icon} size={14} />
+                  {l({ fr: "Voir l'outil", en: "View the tool" })}{" "}
+                  <HugeiconsIcon icon={ArrowRight02Icon} size={14} />
                 </span>
               </Link>
             ))}
@@ -129,7 +145,10 @@ function BoutiquePage() {
 
           {visible.length === 0 && (
             <p className="mt-16 text-center text-muted-foreground">
-              Aucun outil dans cette catégorie pour le moment.
+              {l({
+                fr: "Aucun outil dans cette catégorie pour le moment.",
+                en: "No tools in this category for now.",
+              })}
             </p>
           )}
         </div>
@@ -139,17 +158,24 @@ function BoutiquePage() {
         <div className="mx-auto flex max-w-4xl items-center gap-4 text-sm text-muted-foreground">
           <HugeiconsIcon icon={Shield01Icon} size={20} />
           <p>
-            Tous nos outils sont conçus en complément d'un suivi sexologique, jamais en remplacement
-            d'un accompagnement professionnel.
+            {l({
+              fr: "Tous nos outils sont conçus en complément d'un suivi sexologique, jamais en remplacement d'un accompagnement professionnel.",
+              en: "All our tools are designed to complement sexology support, never to replace professional guidance.",
+            })}
           </p>
         </div>
       </section>
 
       <CTABand
-        title="Besoin d'un accompagnement personnalisé ?"
-        description="Nos outils sont conçus en complément d'une consultation, pas en remplacement."
+        title={l({
+          fr: "Besoin d'un accompagnement personnalisé ?",
+          en: "Need personalised support?",
+        })}
+        description={l({
+          fr: "Nos outils sont conçus en complément d'une consultation, pas en remplacement.",
+          en: "Our tools are designed to complement a consultation, not replace it.",
+        })}
       />
-
     </>
   );
 }
