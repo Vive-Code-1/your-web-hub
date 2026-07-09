@@ -220,6 +220,36 @@ function HomePage() {
         </div>
       </section>
 
+      {/* REASSURANCE / NORMALIZATION */}
+      <section className="px-5 py-16 md:px-8 md:py-24">
+        <div className="mx-auto max-w-5xl overflow-hidden rounded-[2.5rem] bg-accent px-6 py-16 text-center md:px-14 md:py-20">
+          <p className="script text-2xl text-foreground/60">
+            {t<string>("common.notAlone") ?? "Vous n'êtes pas seul·e"}
+          </p>
+          <h2 className="mt-3 text-4xl leading-tight text-foreground md:text-5xl">
+            <em className="italic">Consulter</em> une sexologue,
+            <br /> c'est une démarche <em className="italic">normale</em>.
+          </h2>
+          <p className="mx-auto mt-6 max-w-2xl text-base leading-relaxed text-foreground/75 md:text-lg">
+            Des milliers de personnes prennent chaque année ce pas important pour leur bien-être.
+            Nos consultations sont <strong className="font-semibold text-foreground">professionnelles, respectueuses</strong> et adaptées à votre rythme —
+            aucune question n'est déplacée, aucun jugement n'a sa place.
+          </p>
+          <div className="mt-10 grid gap-4 sm:grid-cols-3">
+            {[
+              { fr: "Vous n'êtes pas seul·e", en: "You are not alone" },
+              { fr: "Une démarche normale & fréquente", en: "A normal & common step" },
+              { fr: "Un espace sans jugement", en: "A judgment-free space" },
+            ].map((item) => (
+              <div key={item.fr} className="flex items-center justify-center gap-2 rounded-full bg-background/80 px-5 py-3 text-sm font-medium text-foreground shadow-soft">
+                <HugeiconsIcon icon={CheckmarkCircle02Icon} size={16} />
+                {item.fr}
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
       {/* FEATURED PRODUCT */}
       <FeaturedProduct />
 

@@ -1,6 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Calendar03Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons";
+import { Calendar03Icon, ArrowRight02Icon, CheckmarkCircle02Icon, Award01Icon, BookOpen01Icon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import { CTABand } from "@/components/site/CTABand";
 import { JANE_STAFF } from "@/lib/links";
@@ -36,14 +36,22 @@ function TeamPage() {
       role: l({ fr: "Sexologue & cofondatrice", en: "Sexologist & co-founder" }),
       bookUrl: JANE_STAFF.vanessa,
       image: therapist1,
+      credentials: [
+        l({ fr: "M.A. Sexologie clinique — UQAM", en: "M.A. Clinical Sexology — UQAM" }),
+        l({ fr: "Membre — Ordre professionnel des sexologues du Québec (OPSQ)", en: "Member — Ordre professionnel des sexologues du Québec (OPSQ)" }),
+        l({ fr: "Formation en protection de la jeunesse & Aire ouverte (CIUSSS)", en: "Training in youth protection & Aire ouverte (CIUSSS)" }),
+      ],
+      expertise: [
+        l({ fr: "Douleur sexuelle", en: "Sexual pain" }),
+        l({ fr: "Stress de performance", en: "Performance stress" }),
+        l({ fr: "Estime de soi", en: "Self-esteem" }),
+        l({ fr: "Ruptures & infidélité", en: "Breakups & infidelity" }),
+        l({ fr: "Traumas", en: "Trauma" }),
+      ],
       bio: [
         l({
-          fr: "Je suis déterminée à soutenir une santé sexuelle épanouie, respectueuse des parcours et réalités de chacun·e. Forte d'expériences auprès des jeunes, des adultes et de personnes vivant avec des enjeux de santé mentale ou des parcours de vie complexes, j'accompagne chacun·e selon ses besoins. J'interviens notamment sur des problématiques telles que la douleur sexuelle, le stress de performance, les difficultés relationnelles, l'estime de soi, les ruptures et l'infidélité.",
-          en: "I am committed to supporting a fulfilling sexual health, respectful of each person's journey and reality. Drawing on experience with youth, adults and people facing mental health or complex life challenges, I support everyone according to their needs. I work in particular with issues such as sexual pain, performance stress, relationship difficulties, self-esteem, breakups and infidelity.",
-        }),
-        l({
-          fr: "Mon expérience en protection de la jeunesse m'a appris à accompagner avec sensibilité des personnes confrontées à des traumas, en valorisant la résilience et l'autonomie. J'ai également travaillé à Aire ouverte, un programme des CIUSSS et CISSS, où j'ai approfondi mon accompagnement en santé mentale avec une vision globale de la santé.",
-          en: "My experience in youth protection taught me to sensitively support people facing trauma, valuing resilience and autonomy. I also worked at Aire ouverte, a program of the CIUSSS and CISSS, where I deepened my mental health support with a holistic view of health.",
+          fr: "Je suis déterminée à soutenir une santé sexuelle épanouie, respectueuse des parcours et réalités de chacun·e. Forte d'expériences auprès des jeunes, des adultes et de personnes vivant avec des enjeux de santé mentale ou des parcours de vie complexes, j'accompagne chacun·e selon ses besoins.",
+          en: "I am committed to supporting a fulfilling sexual health, respectful of each person's journey and reality. Drawing on experience with youth, adults and people facing mental health or complex life challenges, I support everyone according to their needs.",
         }),
         l({
           fr: "Mon approche repose sur l'écoute active, le respect et la souplesse, et s'adapte au rythme de chaque personne.",
@@ -56,18 +64,26 @@ function TeamPage() {
       role: l({ fr: "Sexologue & cofondatrice", en: "Sexologist & co-founder" }),
       bookUrl: JANE_STAFF.anabelle,
       image: therapist2,
+      credentials: [
+        l({ fr: "M.A. Sexologie — profil counseling", en: "M.A. Sexology — counseling profile" }),
+        l({ fr: "Membre — Ordre professionnel des sexologues du Québec (OPSQ)", en: "Member — Ordre professionnel des sexologues du Québec (OPSQ)" }),
+        l({ fr: "Formation continue en thérapie de couple", en: "Continuing education in couple therapy" }),
+      ],
+      expertise: [
+        l({ fr: "Relations de couple", en: "Couple relationships" }),
+        l({ fr: "Écart de désir", en: "Desire gap" }),
+        l({ fr: "Communication", en: "Communication" }),
+        l({ fr: "Gestion des conflits", en: "Conflict management" }),
+        l({ fr: "Dynamiques relationnelles", en: "Relational dynamics" }),
+      ],
       bio: [
         l({
           fr: "Je suis sexologue et membre de l'Ordre professionnel des sexologues du Québec. J'accompagne les personnes et les couples qui souhaitent s'engager dans un processus de mieux-être relationnel et sexuel.",
           en: "I am a sexologist and member of the Ordre professionnel des sexologues du Québec. I support individuals and couples who wish to engage in a process of relational and sexual well-being.",
         }),
         l({
-          fr: "Mon champ d'expertise se situe principalement au niveau des relations de couple, des dynamiques relationnelles, de l'écart de désir sexuel, de la communication et de la gestion des conflits. J'aide les couples à mieux se comprendre, à se rejoindre et à développer des façons plus saines d'être en relation.",
-          en: "My area of expertise lies mainly in couple relationships, relational dynamics, sexual desire gaps, communication and conflict management. I help couples better understand each other, reconnect and develop healthier ways of relating.",
-        }),
-        l({
-          fr: "Mon approche est directe et collaborative. Je crois que chaque personne est experte de sa propre réalité, et mon rôle est de soutenir le cheminement, d'offrir des repères, des outils et un espace où il est possible d'avancer à son rythme.",
-          en: "My approach is direct and collaborative. I believe each person is the expert of their own reality; my role is to support the journey, offer landmarks, tools and a space to move forward at your own pace.",
+          fr: "Mon approche est directe et collaborative. Je crois que chaque personne est experte de sa propre réalité, et mon rôle est de soutenir le cheminement.",
+          en: "My approach is direct and collaborative. I believe each person is the expert of their own reality; my role is to support the journey.",
         }),
       ],
     },
@@ -76,38 +92,51 @@ function TeamPage() {
       role: l({ fr: "Conseiller en sécurité financière", en: "Financial security advisor" }),
       bookUrl: JANE_STAFF.alexandre,
       image: alexandreImg,
+      credentials: [
+        l({ fr: "Certifié — Autorité des marchés financiers (AMF)", en: "Certified — Autorité des marchés financiers (AMF)" }),
+        l({ fr: "Conseiller en sécurité financière & rentes collectives", en: "Financial security & group insurance advisor" }),
+      ],
+      expertise: [
+        l({ fr: "Assurance", en: "Insurance" }),
+        l({ fr: "Épargne", en: "Savings" }),
+        l({ fr: "Planification de retraite", en: "Retirement planning" }),
+        l({ fr: "Gestion des risques", en: "Risk management" }),
+      ],
       bio: [
         l({
-          fr: "Mon objectif en tant que conseiller en sécurité financière est d'aider chaque personne que j'accompagne à prendre le contrôle de sa santé financière, aujourd'hui et pour les années à venir.",
-          en: "My goal as a financial security advisor is to help every person I work with take control of their financial health, today and for the years ahead.",
+          fr: "Mon objectif est d'aider chaque personne à prendre le contrôle de sa santé financière, aujourd'hui et pour les années à venir. Je propose un accompagnement personnalisé — assurance, épargne, planification de retraite ou gestion des risques.",
+          en: "My goal is to help every person take control of their financial health, today and for the years ahead. I offer personalised support — insurance, savings, retirement planning or risk management.",
         }),
         l({
-          fr: "Je vous propose un accompagnement personnalisé pour mettre en place des solutions adaptées à vos besoins — que ce soit en assurance, en épargne, en planification de retraite ou en gestion des risques. Chaque situation est unique, et c'est en prenant le temps de bien comprendre la vôtre que je peux vous offrir des stratégies concrètes, efficaces et réalistes.",
-          en: "I offer personalised support to put in place solutions suited to your needs — whether in insurance, savings, retirement planning or risk management. Every situation is unique, and by taking the time to understand yours I can offer concrete, effective and realistic strategies.",
-        }),
-        l({
-          fr: "Je vous invite à me contacter pour une première rencontre sans frais ni engagement. Ensemble, faisons le point sur votre santé financière et mettons en place les bases d'un avenir serein.",
-          en: "I invite you to reach out for a first meeting, free and with no commitment. Together, let's review your financial health and build the foundations of a peaceful future.",
+          fr: "Une première rencontre sans frais ni engagement pour faire le point ensemble.",
+          en: "A first meeting, free and with no commitment, to review your situation together.",
         }),
       ],
     },
     {
-      name: "Marie-Michelle Parent Dt.P.",
+      name: "Marie-Michelle Parent, Dt.P.",
       role: l({ fr: "Nutritionniste", en: "Nutritionist" }),
       bookUrl: JANE_STAFF.mariemichelle,
       image: marieImg,
+      credentials: [
+        l({ fr: "Dt.P. — Diététiste-nutritionniste", en: "Dt.P. — Registered dietitian-nutritionist" }),
+        l({ fr: "Membre — Ordre professionnel des diététistes du Québec (OPDQ)", en: "Member — Ordre professionnel des diététistes du Québec (OPDQ)" }),
+        l({ fr: "B.Sc. Nutrition", en: "B.Sc. Nutrition" }),
+      ],
+      expertise: [
+        l({ fr: "Prévention des maladies chroniques", en: "Chronic disease prevention" }),
+        l({ fr: "Alimentation intuitive", en: "Intuitive eating" }),
+        l({ fr: "Cours de groupe en nutrition", en: "Group nutrition classes" }),
+        l({ fr: "Santé globale", en: "Overall health" }),
+      ],
       bio: [
         l({
-          fr: "Passionnée par la nutrition et profondément convaincue que l'alimentation est un pilier fondamental de la santé globale, j'accompagne mes clients vers des choix alimentaires durables, adaptés à leur réalité et à leurs objectifs. Je crois fermement que bien manger ne signifie pas se restreindre, mais plutôt apprendre à trouver un équilibre entre plaisir et santé.",
-          en: "Passionate about nutrition and deeply convinced that food is a fundamental pillar of overall health, I support my clients towards sustainable food choices tailored to their reality and goals. I firmly believe that eating well doesn't mean restricting yourself, but rather learning to find balance between pleasure and health.",
+          fr: "L'alimentation est un pilier fondamental de la santé globale. J'accompagne mes clients vers des choix alimentaires durables, adaptés à leur réalité et leurs objectifs — un équilibre entre plaisir et santé.",
+          en: "Food is a fundamental pillar of overall health. I support my clients towards sustainable food choices tailored to their reality and goals — a balance between pleasure and health.",
         }),
         l({
-          fr: "Mon approche repose sur la prévention des maladies chroniques, l'écoute et l'individualisation des recommandations. Je guide chaque personne avec bienveillance, rigueur scientifique et respect de son rythme.",
-          en: "My approach is based on the prevention of chronic diseases, active listening and individualised recommendations. I guide each person with care, scientific rigour and respect for their pace.",
-        }),
-        l({
-          fr: "J'offre également des cours de groupe sur divers thèmes en nutrition — un climat d'apprentissage dynamique et de partage à un tarif plus accessible.",
-          en: "I also offer group classes on various nutrition topics — a dynamic learning and sharing environment at a more accessible rate.",
+          fr: "Mon approche repose sur l'écoute, la rigueur scientifique et le respect du rythme de chacun·e.",
+          en: "My approach is built on listening, scientific rigour and respect for each person's pace.",
         }),
       ],
     },
@@ -164,6 +193,38 @@ function TeamPage() {
                     <p key={k}>{para}</p>
                   ))}
                 </div>
+
+                {/* Credentials */}
+                <div className="mt-8 rounded-2xl border border-border bg-accent/40 p-5">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-foreground/70">
+                    <HugeiconsIcon icon={Award01Icon} size={14} />
+                    {l({ fr: "Formation & titres", en: "Credentials & training" })}
+                  </div>
+                  <ul className="mt-3 space-y-2">
+                    {p.credentials.map((c) => (
+                      <li key={c} className="flex items-start gap-2 text-sm text-foreground/85">
+                        <HugeiconsIcon icon={CheckmarkCircle02Icon} size={16} className="mt-0.5 flex-none text-foreground" />
+                        <span>{c}</span>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+
+                {/* Expertise chips */}
+                <div className="mt-6">
+                  <div className="flex items-center gap-2 text-xs font-semibold uppercase tracking-widest text-muted-foreground">
+                    <HugeiconsIcon icon={BookOpen01Icon} size={14} />
+                    {l({ fr: "Domaines d'expertise", en: "Areas of expertise" })}
+                  </div>
+                  <div className="mt-3 flex flex-wrap gap-2">
+                    {p.expertise.map((e) => (
+                      <span key={e} className="rounded-full border border-border bg-background px-3 py-1.5 text-xs font-medium text-foreground">
+                        {e}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+
                 <div className="mt-8">
                   <Button asChild size="lg" className="rounded-full px-8 py-6 text-base">
                     <a href={p.bookUrl} target="_blank" rel="noopener noreferrer">
