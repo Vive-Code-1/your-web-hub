@@ -76,7 +76,7 @@ const team: Pro[] = [
     name: "Marie-Michelle Parent Dt.P.",
     role: "Nutritionniste",
     bookUrl: JANE_STAFF.mariemichelle,
-    image: therapist2,
+    image: marieImg,
     bio: [
       "Passionnée par la nutrition et profondément convaincue que l'alimentation est un pilier fondamental de la santé globale, j'accompagne mes clients vers des choix alimentaires durables, adaptés à leur réalité et à leurs objectifs. Je crois fermement que bien manger ne signifie pas se restreindre, mais plutôt apprendre à trouver un équilibre entre plaisir et santé.",
       "Mon approche repose sur la prévention des maladies chroniques, l'écoute et l'individualisation des recommandations. Je guide chaque personne avec bienveillance, rigueur scientifique et respect de son rythme.",
