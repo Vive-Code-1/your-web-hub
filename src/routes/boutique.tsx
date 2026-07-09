@@ -1,7 +1,7 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { useState } from "react";
 import { HugeiconsIcon } from "@hugeicons/react";
-import { Download04Icon, ArrowRight02Icon, Shield01Icon } from "@hugeicons/core-free-icons";
+import { ArrowRight02Icon, Shield01Icon } from "@hugeicons/core-free-icons";
 import { CTABand } from "@/components/site/CTABand";
 import { products } from "@/lib/products";
 
@@ -150,8 +150,6 @@ function BoutiquePage() {
         description="Nos outils sont conçus en complément d'une consultation, pas en remplacement."
       />
 
-      {/* Hidden import to keep tree-shaker aware of download icon usage inside product page navigation */}
-      <span className="sr-only"><HugeiconsIcon icon={Download04Icon} size={0} /></span>
     </>
   );
 }
