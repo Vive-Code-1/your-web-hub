@@ -1,14 +1,8 @@
 import { Link } from "@tanstack/react-router";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Menu01Icon, Cancel01Icon, ArrowDown01Icon } from "@hugeicons/core-free-icons";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { useT } from "@/lib/i18n";
 import { LanguageToggle } from "./LanguageToggle";
 import { JANE_BOOK_URL } from "@/lib/links";
