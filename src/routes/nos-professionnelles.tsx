@@ -7,8 +7,6 @@ import { JANE_STAFF } from "@/lib/links";
 import { useL } from "@/lib/i18n";
 import therapist1 from "@/assets/vanessa.png";
 import therapist2 from "@/assets/anabelle.png";
-import alexandreImg from "@/assets/team-duo-2.avif";
-import marieImg from "@/assets/team-duo-3.avif";
 
 export const Route = createFileRoute("/nos-professionnelles")({
   head: () => ({
@@ -84,59 +82,6 @@ function TeamPage() {
         l({
           fr: "Mon approche est directe et collaborative. Je crois que chaque personne est experte de sa propre réalité, et mon rôle est de soutenir le cheminement.",
           en: "My approach is direct and collaborative. I believe each person is the expert of their own reality; my role is to support the journey.",
-        }),
-      ],
-    },
-    {
-      name: "Alexandre Morier-Rouzier",
-      role: l({ fr: "Conseiller en sécurité financière", en: "Financial security advisor" }),
-      bookUrl: JANE_STAFF.alexandre,
-      image: alexandreImg,
-      credentials: [
-        l({ fr: "Certifié — Autorité des marchés financiers (AMF)", en: "Certified — Autorité des marchés financiers (AMF)" }),
-        l({ fr: "Conseiller en sécurité financière & rentes collectives", en: "Financial security & group insurance advisor" }),
-      ],
-      expertise: [
-        l({ fr: "Assurance", en: "Insurance" }),
-        l({ fr: "Épargne", en: "Savings" }),
-        l({ fr: "Planification de retraite", en: "Retirement planning" }),
-        l({ fr: "Gestion des risques", en: "Risk management" }),
-      ],
-      bio: [
-        l({
-          fr: "Mon objectif est d'aider chaque personne à prendre le contrôle de sa santé financière, aujourd'hui et pour les années à venir. Je propose un accompagnement personnalisé — assurance, épargne, planification de retraite ou gestion des risques.",
-          en: "My goal is to help every person take control of their financial health, today and for the years ahead. I offer personalised support — insurance, savings, retirement planning or risk management.",
-        }),
-        l({
-          fr: "Une première rencontre sans frais ni engagement pour faire le point ensemble.",
-          en: "A first meeting, free and with no commitment, to review your situation together.",
-        }),
-      ],
-    },
-    {
-      name: "Marie-Michelle Parent, Dt.P.",
-      role: l({ fr: "Nutritionniste", en: "Nutritionist" }),
-      bookUrl: JANE_STAFF.mariemichelle,
-      image: marieImg,
-      credentials: [
-        l({ fr: "Dt.P. — Diététiste-nutritionniste", en: "Dt.P. — Registered dietitian-nutritionist" }),
-        l({ fr: "Membre — Ordre professionnel des diététistes du Québec (OPDQ)", en: "Member — Ordre professionnel des diététistes du Québec (OPDQ)" }),
-        l({ fr: "B.Sc. Nutrition", en: "B.Sc. Nutrition" }),
-      ],
-      expertise: [
-        l({ fr: "Prévention des maladies chroniques", en: "Chronic disease prevention" }),
-        l({ fr: "Alimentation intuitive", en: "Intuitive eating" }),
-        l({ fr: "Cours de groupe en nutrition", en: "Group nutrition classes" }),
-        l({ fr: "Santé globale", en: "Overall health" }),
-      ],
-      bio: [
-        l({
-          fr: "L'alimentation est un pilier fondamental de la santé globale. J'accompagne mes clients vers des choix alimentaires durables, adaptés à leur réalité et leurs objectifs — un équilibre entre plaisir et santé.",
-          en: "Food is a fundamental pillar of overall health. I support my clients towards sustainable food choices tailored to their reality and goals — a balance between pleasure and health.",
-        }),
-        l({
-          fr: "Mon approche repose sur l'écoute, la rigueur scientifique et le respect du rythme de chacun·e.",
-          en: "My approach is built on listening, scientific rigour and respect for each person's pace.",
         }),
       ],
     },
