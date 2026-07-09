@@ -1,17 +1,53 @@
 import { Link } from "@tanstack/react-router";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Menu01Icon, Cancel01Icon, ArrowDown01Icon } from "@hugeicons/core-free-icons";
-import { useState } from "react";
+import { useState, useRef } from "react";
 import { Button } from "@/components/ui/button";
-import {
-  DropdownMenu,
-  DropdownMenuContent,
-  DropdownMenuItem,
-  DropdownMenuTrigger,
-} from "@/components/ui/dropdown-menu";
 import { useT } from "@/lib/i18n";
 import { LanguageToggle } from "./LanguageToggle";
 import { JANE_BOOK_URL } from "@/lib/links";
+
+function HoverMenu({ label, items }: { label: string; items: readonly { to: string; label: string }[] }) {
+  const [open, setOpen] = useState(false);
+  const timer = useRef<ReturnType<typeof setTimeout> | null>(null);
+  const show = () => {
+    if (timer.current) clearTimeout(timer.current);
+    setOpen(true);
+  };
+  const hide = () => {
+    if (timer.current) clearTimeout(timer.current);
+    timer.current = setTimeout(() => setOpen(false), 120);
+  };
+  return (
+    <div className="relative" onMouseEnter={show} onMouseLeave={hide}>
+      <button
+        type="button"
+        className="flex items-center gap-1 text-sm text-foreground/80 outline-none transition-colors hover:text-foreground"
+        onFocus={show}
+        onBlur={hide}
+      >
+        {label}
+        <HugeiconsIcon icon={ArrowDown01Icon} size={14} />
+      </button>
+      {open && (
+        <div className="absolute right-0 top-full z-50 pt-3">
+          <div className="w-56 rounded-2xl border border-border bg-background p-2 shadow-elegant">
+            {items.map((s) => (
+              <Link
+                key={s.to}
+                to={s.to}
+                className="block rounded-xl px-3 py-2 text-sm text-foreground/80 hover:bg-muted hover:text-foreground"
+                onClick={() => setOpen(false)}
+              >
+                {s.label}
+              </Link>
+            ))}
+          </div>
+        </div>
+      )}
+    </div>
+  );
+}
 
 export function SiteHeader() {
   const [open, setOpen] = useState(false);
@@ -53,21 +89,7 @@ export function SiteHeader() {
               {item.label}
             </Link>
           ))}
-          <DropdownMenu>
-            <DropdownMenuTrigger className="flex items-center gap-1 text-sm text-foreground/80 outline-none transition-colors hover:text-foreground">
-              {t<string>("nav.professionals")}
-              <HugeiconsIcon icon={ArrowDown01Icon} size={14} />
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end" className="w-56 rounded-2xl border-border">
-              {proSubmenu.map((s) => (
-                <DropdownMenuItem key={s.to} asChild className="rounded-xl">
-                  <Link to={s.to} className="w-full cursor-pointer">
-                    {s.label}
-                  </Link>
-                </DropdownMenuItem>
-              ))}
-            </DropdownMenuContent>
-          </DropdownMenu>
+          <HoverMenu label={t<string>("nav.professionals")} items={proSubmenu} />
           <Link
             to="/a-propos"
             className="text-sm text-foreground/80 transition-colors hover:text-foreground"

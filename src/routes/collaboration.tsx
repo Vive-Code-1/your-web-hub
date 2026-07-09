@@ -2,7 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { HugeiconsIcon } from "@hugeicons/react";
 import { Mail01Icon, HeartCheckIcon, BulbIcon, UserGroupIcon, PuzzleIcon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
-import heroImage from "@/assets/therapists.jpg";
+import heroAsset from "@/assets/team-duo-4.avif.asset.json";
+const heroImage = heroAsset.url;
 
 export const Route = createFileRoute("/collaboration")({
   head: () => ({

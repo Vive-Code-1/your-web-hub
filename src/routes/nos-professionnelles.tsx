@@ -4,8 +4,14 @@ import { Calendar03Icon, ArrowRight02Icon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import { CTABand } from "@/components/site/CTABand";
 import { JANE_STAFF } from "@/lib/links";
-import therapist1 from "@/assets/therapist-1.jpg";
-import therapist2 from "@/assets/therapist-2.jpg";
+import vanessaAsset from "@/assets/vanessa.png.asset.json";
+import anabelleAsset from "@/assets/anabelle.png.asset.json";
+import duo1 from "@/assets/team-duo-2.avif.asset.json";
+import duo2 from "@/assets/team-duo-3.avif.asset.json";
+const therapist1 = vanessaAsset.url;
+const therapist2 = anabelleAsset.url;
+const alexandreImg = duo1.url;
+const marieImg = duo2.url;
 
 export const Route = createFileRoute("/nos-professionnelles")({
   head: () => ({
@@ -59,7 +65,7 @@ const team: Pro[] = [
     name: "Alexandre Morier-Rouzier",
     role: "Conseiller en sécurité financière",
     bookUrl: JANE_STAFF.alexandre,
-    image: therapist1,
+    image: alexandreImg,
     bio: [
       "Mon objectif en tant que conseiller en sécurité financière est d'aider chaque personne que j'accompagne à prendre le contrôle de sa santé financière, aujourd'hui et pour les années à venir.",
       "Je vous propose un accompagnement personnalisé pour mettre en place des solutions adaptées à vos besoins — que ce soit en assurance, en épargne, en planification de retraite ou en gestion des risques. Chaque situation est unique, et c'est en prenant le temps de bien comprendre la vôtre que je peux vous offrir des stratégies concrètes, efficaces et réalistes.",
@@ -70,7 +76,7 @@ const team: Pro[] = [
     name: "Marie-Michelle Parent Dt.P.",
     role: "Nutritionniste",
     bookUrl: JANE_STAFF.mariemichelle,
-    image: therapist2,
+    image: marieImg,
     bio: [
       "Passionnée par la nutrition et profondément convaincue que l'alimentation est un pilier fondamental de la santé globale, j'accompagne mes clients vers des choix alimentaires durables, adaptés à leur réalité et à leurs objectifs. Je crois fermement que bien manger ne signifie pas se restreindre, mais plutôt apprendre à trouver un équilibre entre plaisir et santé.",
       "Mon approche repose sur la prévention des maladies chroniques, l'écoute et l'individualisation des recommandations. Je guide chaque personne avec bienveillance, rigueur scientifique et respect de son rythme.",

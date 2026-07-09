@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Heart, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { CTABand } from "@/components/site/CTABand";
 import { useT } from "@/lib/i18n";
-import therapist1 from "@/assets/therapist-1.jpg";
-import therapist2 from "@/assets/therapist-2.jpg";
+import vanessaAsset from "@/assets/vanessa.png.asset.json";
+import anabelleAsset from "@/assets/anabelle.png.asset.json";
 
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
@@ -21,7 +21,7 @@ export const Route = createFileRoute("/a-propos")({
   component: AboutPage,
 });
 
-const therapistImgs = [therapist1, therapist2];
+const therapistImgs = [vanessaAsset.url, anabelleAsset.url];
 const valueIcons = [ShieldCheck, Heart, Users, Sparkles];
 
 interface Therapist { name: string; role: string; creds: string[]; bio: string; approach: string }
