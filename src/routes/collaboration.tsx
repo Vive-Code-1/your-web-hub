@@ -3,8 +3,7 @@ import { HugeiconsIcon } from "@hugeicons/react";
 import { Mail01Icon, HeartCheckIcon, BulbIcon, UserGroupIcon, PuzzleIcon } from "@hugeicons/core-free-icons";
 import { Button } from "@/components/ui/button";
 import { useL } from "@/lib/i18n";
-import heroAsset from "@/assets/team-duo-4.avif.asset.json";
-const heroImage = heroAsset.url;
+import heroImage from "@/assets/team-duo-4.avif";
 
 export const Route = createFileRoute("/collaboration")({
   head: () => ({
