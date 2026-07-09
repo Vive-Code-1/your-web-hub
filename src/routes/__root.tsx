@@ -82,21 +82,24 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       {
         name: "description",
         content:
-          "Consultations en sexologie en ligne avec des sexologues qualifié·e·s. 100 % confidentiel, sécurisé et sans jugement. Prenez rendez-vous en moins de 24 h.",
+          "Parlez à un·e sexologue qualifié·e depuis chez vous. Consultations en ligne 100 % confidentielles, sécurisées et sans jugement. Rendez-vous en moins de 24 h.",
       },
       { name: "author", content: "Evana Clinique" },
       { property: "og:site_name", content: "Evana Clinique" },
       { property: "og:type", content: "website" },
-      { property: "og:title", content: "Evana Clinique — Sexologie en ligne" },
+      { property: "og:title", content: "Evana Clinique — Sexologie en ligne, confidentielle & sans jugement" },
       {
         property: "og:description",
-        content: "Consultations en sexologie en ligne, confidentielles et sans jugement.",
+        content: "Parlez à un·e sexologue qualifié·e depuis chez vous. Consultations en ligne 100 % confidentielles, sécurisées et sans jugement. Rendez-vous en moins de 24 h.",
       },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Evana Clinique — Sexologie en ligne, confidentielle & sans jugement" },
+      { name: "twitter:description", content: "Parlez à un·e sexologue qualifié·e depuis chez vous. Consultations en ligne 100 % confidentielles, sécurisées et sans jugement. Rendez-vous en moins de 24 h." },
+      { property: "og:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/51823925-071e-49d4-84c4-a2b73a9efe5e" },
+      { name: "twitter:image", content: "https://storage.googleapis.com/gpt-engineer-file-uploads/attachments/og-images/51823925-071e-49d4-84c4-a2b73a9efe5e" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },
-      { rel: "icon", href: "/favicon.ico", type: "image/x-icon" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
       {

@@ -41,7 +41,7 @@ export const Route = createFileRoute("/")({
         content:
           "Parlez à un·e sexologue qualifié·e depuis chez vous. Consultations en ligne 100 % confidentielles, sécurisées et sans jugement. Rendez-vous en moins de 24 h.",
       },
-      { property: "og:title", content: "Evana Clinique — Sexologie en ligne" },
+      { property: "og:title", content: "Evana Clinique — Sexologie en ligne, confidentielle & sans jugement" },
       { property: "og:url", content: "/" },
     ],
     links: [{ rel: "canonical", href: "/" }],
