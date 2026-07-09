@@ -685,3 +685,21 @@ export function useLang(): Ctx {
 export function useT() {
   return useLang().t;
 }
+
+// Inline bilingual helper: pick the correct string based on current language.
+// Usage:
+//   const l = useL();
+//   <p>{l({ fr: "Bonjour", en: "Hello" })}</p>
+export function useL() {
+  const { lang } = useLang();
+  return function l(pair: { fr: string; en: string }): string {
+    return pair[lang] ?? pair.fr;
+  };
+}
+
+// Component form: <L fr="Bonjour" en="Hello" />
+export function L({ fr, en }: { fr: string; en: string }) {
+  const { lang } = useLang();
+  return <>{lang === "en" ? en : fr}</>;
+}
+
