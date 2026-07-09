@@ -2,8 +2,8 @@ import { createFileRoute } from "@tanstack/react-router";
 import { Heart, ShieldCheck, Sparkles, Users } from "lucide-react";
 import { CTABand } from "@/components/site/CTABand";
 import { useT } from "@/lib/i18n";
-import therapist1 from "@/assets/therapist-1.jpg";
-import therapist2 from "@/assets/therapist-2.jpg";
+import vanessaAsset from "@/assets/vanessa.png.asset.json";
+import anabelleAsset from "@/assets/anabelle.png.asset.json";
 
 export const Route = createFileRoute("/a-propos")({
   head: () => ({
