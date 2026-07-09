@@ -14,22 +14,22 @@ import { reportLovableError } from "../lib/lovable-error-reporting";
 import { SiteHeader } from "../components/site/SiteHeader";
 import { SiteFooter } from "../components/site/SiteFooter";
 import { StickyMobileCTA } from "../components/site/StickyMobileCTA";
+import { LanguageProvider, useT } from "../lib/i18n";
 
 function NotFoundComponent() {
+  const t = useT();
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
         <h1 className="text-7xl font-display text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-display text-foreground">Page introuvable</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Cette page n'existe pas ou a été déplacée.
-        </p>
+        <h2 className="mt-4 text-xl font-display text-foreground">{t<string>("errors.notFound")}</h2>
+        <p className="mt-2 text-sm text-muted-foreground">{t<string>("errors.notFoundText")}</p>
         <div className="mt-6">
           <Link
             to="/"
             className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Retour à l'accueil
+            {t<string>("errors.backHome")}
           </Link>
         </div>
       </div>
@@ -40,6 +40,7 @@ function NotFoundComponent() {
 function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   console.error(error);
   const router = useRouter();
+  const t = useT();
   useEffect(() => {
     reportLovableError(error, { boundary: "tanstack_root_error_component" });
   }, [error]);
@@ -47,10 +48,8 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
   return (
     <div className="flex min-h-screen items-center justify-center bg-background px-4">
       <div className="max-w-md text-center">
-        <h1 className="text-2xl font-display text-foreground">Une erreur est survenue</h1>
-        <p className="mt-2 text-sm text-muted-foreground">
-          Nous n'avons pas pu charger cette page. Réessayez ou revenez à l'accueil.
-        </p>
+        <h1 className="text-2xl font-display text-foreground">{t<string>("errors.generic")}</h1>
+        <p className="mt-2 text-sm text-muted-foreground">{t<string>("errors.genericText")}</p>
         <div className="mt-6 flex flex-wrap justify-center gap-2">
           <button
             onClick={() => {
@@ -59,13 +58,13 @@ function ErrorComponent({ error, reset }: { error: Error; reset: () => void }) {
             }}
             className="inline-flex items-center justify-center rounded-full bg-primary px-6 py-3 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
           >
-            Réessayer
+            {t<string>("errors.retry")}
           </button>
           <a
             href="/"
             className="inline-flex items-center justify-center rounded-full border border-input bg-background px-6 py-3 text-sm font-medium text-foreground transition-colors hover:bg-accent"
           >
-            Accueil
+            {t<string>("errors.home")}
           </a>
         </div>
       </div>
@@ -143,14 +142,16 @@ function RootComponent() {
 
   return (
     <QueryClientProvider client={queryClient}>
-      <div className="flex min-h-screen flex-col">
-        <SiteHeader />
-        <main className="flex-1">
-          <Outlet />
-        </main>
-        <SiteFooter />
-        <StickyMobileCTA />
-      </div>
+      <LanguageProvider>
+        <div className="flex min-h-screen flex-col">
+          <SiteHeader />
+          <main className="flex-1">
+            <Outlet />
+          </main>
+          <SiteFooter />
+          <StickyMobileCTA />
+        </div>
+      </LanguageProvider>
     </QueryClientProvider>
   );
 }
