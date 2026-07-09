@@ -202,6 +202,3 @@ function ProductPage() {
     </>
   );
 }
-
-// unused import guard
-export const __unused = products;
