@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/button";
 import { CTABand } from "@/components/site/CTABand";
 import { JANE_STAFF } from "@/lib/links";
 import { useL } from "@/lib/i18n";
-import therapist1 from "@/assets/vanessa.png";
-import therapist2 from "@/assets/anabelle.png";
+import therapist1 from "@/assets/anabelle.png";
+import therapist2 from "@/assets/vanessa.png";
 
 export const Route = createFileRoute("/nos-professionnelles")({
   head: () => ({
